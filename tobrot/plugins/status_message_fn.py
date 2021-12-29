@@ -41,13 +41,13 @@ from tobrot.helper_funcs.upload_to_tg import upload_to_tg
 async def upload_as_doc(client, message):
     user_specific_config[message.from_user.id]=UserDynaConfig(message.from_user.id,True)
     u_men = message.from_user.mention
-    await message.reply_text(f"<i><b>👤 User : {u_men} \n\n🏷Toggle Changed : <code>Document 📂</code></b></i>")
+    await message.reply_text(f"<i><b>👤 User : {u_men} \n\n🏷Toggle Changed : <code>Dᴏᴄᴜᴍᴇɴᴛ 📂</code></b></i>")
 
 
 async def upload_as_video(client, message):
     user_specific_config[message.from_user.id]=UserDynaConfig(message.from_user.id,False)
     u_men = message.from_user.mention
-    await message.reply_text(f"<i><b>👤 User : {u_men}\n\n🏷Toggle Changed : <code>Video 🎞</code></b></i>")
+    await message.reply_text(f"<i><b>👤 Usᴇʀ : {u_men}\n\n🏷 Tᴏɢɢʟᴇ Cʜᴀɴɢᴇᴅ : <code>Video 🎞</code></b></i>")
  
 
 async def status_message_f(
@@ -55,7 +55,7 @@ async def status_message_f(
 ):  # weird code but 'This is the way' @gautamajay52
     aria_i_p = await aria_start()
     # Show All Downloads
-    to_edit = await message.reply("<code>Processing . . . 🔄</code>")
+    to_edit = await message.reply("<code>Pʀᴏᴄᴇssɪɴɢ . . . 🔄</code>")
     chat_id = int(message.chat.id)
     mess_id = int(to_edit.message_id)
     async with _lock:
@@ -81,24 +81,24 @@ async def status_message_f(
             if file.status == "active":
                 is_file = file.seeder
                 if is_file is None:
-                    msgg = f"<b>🔁Conn:</b> <code>{file.connections}</code>"
+                    msgg = f"<b>🔁 ᴄᴏɴɴ:</b> <code>{file.connections}</code>"
                 else:
-                    msgg = f"<b>🍱Seeds:</b> <code>{file.num_seeders}</code> | <b>🍒Peers:</b> <code>{file.connections}</code>"
+                    msgg = f"<b>🌱 ꜱᴇᴇᴅᴇʀꜱ:</b> <code>{file.num_seeders}</code> | <b>🍒 ʟᴇᴇᴄʜᴇʀꜱ:</b> <code>{file.connections}</code>"
 
                 percentage = int(file.progress_string(0).split('%')[0])
                 prog = "[{0}{1}]".format("".join([FINISHED_PROGRESS_STR for i in range(math.floor(percentage / 5))]),"".join([UN_FINISHED_PROGRESS_STR for i in range(20 - math.floor(percentage / 5))]))
                 msg += f"<b>⑊⑊⑊⑊⑊⑊⑊⑊⑊⑊⑊⑊⑊⑊⑊⑊⑊⑊⑊⑊⑊⑊⑊⑊⑊⑊⑊⑊⑊⑊⑊⑊⑊⑊⑊⑊</b>\n"
-                msg += f"\n<b>🔖Filename:</b> <code>{downloading_dir_name}</code>"
-                msg += f"\n<b>📡 Status</b>: <i>Downloading...📥</i>"
+                msg += f"\n<b>🔖 ꜰɪʟᴇɴᴀᴍᴇ:</b> <code>{downloading_dir_name}</code>"
+                msg += f"\n<b>📡 ꜱᴛᴀᴛᴜꜱ</b>: <i>Downloading...📥</i>"
                 msg += f"\n<code>{prog}</code>"
-                msg += f"\n<b>🗃 Downloaded</b>: <code>{file.progress_string()}</code> <b>of</b> <code>{file.total_length_string()}</code>"
-                msg += f"\n<b>📊Speed</b>: <code>{file.download_speed_string()}</code>,"
-                msg += f"<b>🔍ETA:</b> <code>{file.eta_string()}</code>"  
+                msg += f"\n<b>📥 ᴅᴏᴡɴʟᴏᴀᴅᴇᴅ</b>: <code>{file.progress_string()}</code> <b>of</b> <code>{file.total_length_string()}</code>"
+                msg += f"\n<b>📊 ꜱᴘᴇᴇᴅ</b>: <code>{file.download_speed_string()}</code>,"
+                msg += f"<b>🔍 ᴇᴛᴀ:</b> <code>{file.eta_string()}</code>"  
                 #umen = f'<a href="tg://user?id={file.message.from_user.id}">{file.message.from_user.first_name}</a>'
                 #msg += f"\n<b>👤User:</b> {umen} (<code>{file.message.from_user.id}</code>)"
                 #msg += f"\n<b>⚠️Warn:</b> <code>/warn {file.message.from_user.id}</code>"
                 msg += f"\n{msgg}"
-                msg += f"\n<b>⛔ Cancel:</b> <code>/cancel {file.gid}</code>"
+                msg += f"\n<b>⛔ ᴛᴏ ꜱᴛᴏᴘ:</b> <code>/cancel {file.gid}</code>"
                 msg += "\n"
 
         hr, mi, se = up_time(time.time() - BOT_START_TIME)
@@ -116,7 +116,7 @@ async def status_message_f(
             f"<b>TOTAL:</b> <code>{total}</code> | <b>USED:</b> <code>{used}</code>\n"
         )
         if msg == "":
-            msg = "<b>⑊⑊⑊⑊⑊⑊⑊⑊⑊⑊⑊⑊⑊⑊⑊⑊⑊⑊⑊⑊⑊⑊⑊⑊⑊⑊⑊⑊⑊⑊⑊⑊⑊⑊⑊⑊ \n\n⚠️ No Active, Queued or Paused TORRENTs/Direct Links ⚠️</b>\n"
+            msg = "<b>⑊⑊⑊⑊⑊⑊⑊⑊⑊⑊⑊⑊⑊⑊⑊⑊⑊⑊⑊⑊⑊⑊⑊⑊⑊⑊⑊⑊⑊⑊⑊⑊⑊⑊⑊⑊ \n\n⚠️ Nᴏ Aᴄᴛɪᴠᴇ, Qᴜᴇᴜɴᴅ Oʀ Pᴀᴜsᴇᴅ Tᴏʀʀᴇɴᴛs/Dᴇʀᴇᴄᴛ Lɪɴᴋs ⚠️</b>\n"
             msg = msg + "\n" + ms_g
             await to_edit.edit(msg)
             #await asyncio.sleep(5)
@@ -164,7 +164,7 @@ async def cancel_message_f(client, message):
                 downloads = aria_i_p.get_downloads(gid_list)
             aria_i_p.remove(downloads=downloads, force=True, files=True, clean=True)
             await i_m_s_e_g.edit_text(
-                f"⛔<b> Download Cancelled </b>⛔ :\n<code>{name} ({size})</code> By <a href='tg://user?id={message.from_user.id}'>{message.from_user.first_name}</a>"
+                f"⛔<b> Dᴏᴡɴʟᴏᴀᴅ Cᴀɴᴄᴇʟʟᴇᴅ </b>⛔ :\n<code>{name} ({size})</code> By <a href='tg://user?id={message.from_user.id}'>{message.from_user.first_name}</a>"
             )
         except Exception as e:
             await i_m_s_e_g.edit_text("<i>⚠️ FAILED ⚠️</i>\n\n" + str(e) + "\n#Error")
