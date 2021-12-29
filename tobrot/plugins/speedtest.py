@@ -14,17 +14,17 @@ async def get_speed(self, message):
     result = test.results.dict()
     path = (result['share'])
     string_speed = f'''
-<code>🌐 Server :</code>
-╠ <b>Name:</b> <code>{result['server']['name']}</code>
-╠ <b>Country:</b> <code>{result['server']['country']}, {result['server']['cc']}</code>
-╠ <b>Sponsor:</b> <code>{result['server']['sponsor']}</code>
-╚ <b>ISP:</b> <code>{result['client']['isp']}</code>
+<code>📡 Sᴇʀᴠᴇʀ :</code>
+╠ <b>🗳️ Nᴀᴍᴇ:</b> <code>{result['server']['name']}</code>
+╠ <b>🌍 Cᴏᴜɴᴛʀʏ:</b> <code>{result['server']['country']}, {result['server']['cc']}</code>
+╠ <b>🩸 Sᴘᴏɴsᴏʀ:</b> <code>{result['server']['sponsor']}</code>
+╚ <b>⚙️ ɪsᴘ:</b> <code>{result['client']['isp']}</code>
 
-<code>🧭 SpeedTest Results :</code>
-╠ <b>Upload:</b> <code>{humanbytes(result['upload'] / 8)}</code>
-╠ <b>Download:</b>  <code>{humanbytes(result['download'] / 8)}</code>
-╠ <b>Ping:</b> <code>{result['ping']} ms</code>
-╚ <b>ISP Rating:</b> <code>{result['client']['isprating']}</code>
+<code>📊 Sᴘᴇᴇᴅ Tᴇsᴛ Results :</code>
+╠ <b>📈 Uᴘʟᴏᴀᴅ:</b> <code>{humanbytes(result['upload'] / 8)}</code>
+╠ <b>📉 Dᴏᴡɴʟᴏᴀᴅ:</b>  <code>{humanbytes(result['download'] / 8)}</code>
+╠ <b>📌 Pɪɴɢ:</b> <code>{result['ping']} ms</code>
+╚ <b>💡 Isᴘ ʀᴀᴛɪɴɢ:</b> <code>{result['client']['isprating']}</code>
 '''
     await imspd.delete()
     await message.reply(string_speed, parse_mode="HTML")
