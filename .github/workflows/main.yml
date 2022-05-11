@@ -15,7 +15,7 @@ jobs:
           usedocker: true
           docker_heroku_process_type: worker
           stack: "container"
-          region: "eu"
+          region: "us"
         env:
           HD_APP_ID: ${{secrets.APP_ID}}
           HD_API_HASH: ${{secrets.API_HASH}}
